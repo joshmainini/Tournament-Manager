@@ -17,7 +17,7 @@ namespace WebApplication1.Models
             return userIdentity;
         }
 
-        public string DisplayName { get; set; }
+        //public string DisplayName { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
