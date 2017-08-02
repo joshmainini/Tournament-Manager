@@ -35,7 +35,7 @@ namespace WebApplication1.Tests.SeleniumTests
 			Register entryPage = new Register(driver);
 			entryPage.Navigate();
 
-			RegisterResult result = entryPage.FillOutForm("jellymo@jellymo.com", "Jellymo2", "Jellymo2");
+			RegisterResult result = entryPage.FillOutForm("jellymo@jellymo.com", "Jellymo2@", "Jellymo2@");
 
 			Assert.AreEqual("Hello jellymo@jellymo.com!", result.Success.Text);
 		}

@@ -23,10 +23,10 @@ namespace WebApplication1.Tests.PageObjects
 		[FindsBy(How = How.Name, Using = "Password")]
 		public IWebElement Password { get; set; }
 
-		[FindsBy(How = How.Name, Using = "Confirm password")]
+		[FindsBy(How = How.Name, Using = "ConfirmPassword")]
 		public IWebElement ConfirmPassword { get; set; }
 
-		[FindsBy(How = How.CssSelector, Using = "form button")]
+		[FindsBy(How = How.ClassName, Using = "btn")]
 		public IWebElement Submit { get; set; }
 
 
