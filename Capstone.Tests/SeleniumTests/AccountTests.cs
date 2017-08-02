@@ -39,5 +39,16 @@ namespace WebApplication1.Tests.SeleniumTests
 
 			Assert.AreEqual("Hello jellymo@jellymo.com!", result.Success.Text);
 		}
+
+		[TestMethod]
+		public void Login_GoToHome()
+		{
+			Login entryPage = new Login(driver);
+			entryPage.Navigate();
+
+			LoginResult result = entryPage.FillOutForm("jellymo@jellymo.com", "Jellymo2@");
+
+			Assert.AreEqual("Hello jellymo@jellymo.com!", result.Success.Text);
+		}
 	}
 }

@@ -91,6 +91,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PageObjects\BasePage.cs" />
+    <Compile Include="PageObjects\Login.cs" />
+    <Compile Include="PageObjects\LoginResult.cs" />
     <Compile Include="PageObjects\Register.cs" />
     <Compile Include="PageObjects\RegisterResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
