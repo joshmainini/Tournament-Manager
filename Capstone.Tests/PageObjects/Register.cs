@@ -30,7 +30,7 @@ namespace WebApplication1.Tests.PageObjects
 		public IWebElement Submit { get; set; }
 
 
-		public Register FillOutForm(string email,  string password, string confirmPassword)
+		public RegisterResult FillOutForm(string email,  string password, string confirmPassword)
 		{
 			// Set the Principal
 			Email.SendKeys(email.ToString());
@@ -41,7 +41,7 @@ namespace WebApplication1.Tests.PageObjects
 
 			Submit.Click();
 
-			return new Register(driver);
+			return new RegisterResult(driver);
 		}
 	}
 }
