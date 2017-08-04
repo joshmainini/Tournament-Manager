@@ -8,10 +8,10 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace WebApplication1.Tests.PageObjects
 {
-	public class RegisterResult : BasePage
+	public class LoginResult : BasePage
 	{
-		public RegisterResult(IWebDriver driver)
-			: base(driver, "/Account/Register")
+		public LoginResult(IWebDriver driver)
+			: base(driver, "/Home")
 		{
 			PageFactory.InitElements(driver, this);
 		}

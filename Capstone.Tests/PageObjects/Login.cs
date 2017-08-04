@@ -8,10 +8,10 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace WebApplication1.Tests.PageObjects
 {
-	public class Register : BasePage
+	public class Login : BasePage
 	{
-		public Register(IWebDriver driver)
-			: base(driver, "/Account/Register")
+		public Login(IWebDriver driver)
+			: base(driver, "/Account/Login")
 		{
 			PageFactory.InitElements(driver, this);
 		}
@@ -23,25 +23,19 @@ namespace WebApplication1.Tests.PageObjects
 		[FindsBy(How = How.Name, Using = "Password")]
 		public IWebElement Password { get; set; }
 
-		[FindsBy(How = How.Name, Using = "ConfirmPassword")]
-		public IWebElement ConfirmPassword { get; set; }
-
 		[FindsBy(How = How.ClassName, Using = "btn")]
 		public IWebElement Submit { get; set; }
 
-
-		public RegisterResult FillOutForm(string email,  string password, string confirmPassword)
+		public LoginResult FillOutForm(string email, string password)
 		{
 			// Set the Principal
 			Email.SendKeys(email.ToString());
 
 			Password.SendKeys(password.ToString());
 
-			ConfirmPassword.SendKeys(confirmPassword.ToString());
-
 			Submit.Click();
 
-			return new RegisterResult(driver);
+			return new LoginResult(driver);
 		}
 	}
 }
