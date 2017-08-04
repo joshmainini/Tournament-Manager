@@ -18,9 +18,10 @@ namespace WebApplication1.Models
 
     public class TournamentContext : DbContext
     {
+        //string conn = "Data Source=localhost\sqlexpress;Initial Catalog=Slime;Integrated Security=True";
         //This is for the purpose of viewing the queries.  Installing the Glimpse package is another option.
-        //This constructor is for the purpose of logging SQL queries to the debug window.
-        public TournamentContext()
+        //This constructor is for the purpose of logging SQL queries to the debug OUTPUT window.
+        public TournamentContext() : base("Data Source=localhost\\sqlexpress;Initial Catalog=Slime;Integrated Security=True")
         {
             Database.Log = s => Debug.WriteLine(s);
         }
