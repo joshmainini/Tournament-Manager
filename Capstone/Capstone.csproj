@@ -197,6 +197,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\TournamentsController.cs" />
     <Compile Include="DAL\UserDAL.cs" />
     <Compile Include="Global.asax.cs">
@@ -274,6 +275,11 @@
     <Content Include="Views\Tournaments\Details.cshtml" />
     <Content Include="Views\Tournaments\Edit.cshtml" />
     <Content Include="Views\Tournaments\Index.cshtml" />
+    <Content Include="Views\Teams\Create.cshtml" />
+    <Content Include="Views\Teams\Delete.cshtml" />
+    <Content Include="Views\Teams\Details.cshtml" />
+    <Content Include="Views\Teams\Edit.cshtml" />
+    <Content Include="Views\Teams\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
