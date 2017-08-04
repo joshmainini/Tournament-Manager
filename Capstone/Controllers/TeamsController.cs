@@ -16,9 +16,10 @@ namespace WebApplication1.Controllers
         private TournamentManagerContext db = new TournamentManagerContext();
 
         // GET: Teams
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(int? id)
         {
-            return View(await db.Teams.ToListAsync());
+			ViewBag.id = id;
+            return View(await db.Teams.Where(a => a.TournamentId == id).ToListAsync());
         }
 
         // GET: Teams/Details/5
@@ -37,8 +38,9 @@ namespace WebApplication1.Controllers
         }
 
         // GET: Teams/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
+			ViewBag.id = id;
             return View();
         }
 
@@ -47,13 +49,13 @@ namespace WebApplication1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "TeamId,Name,TournamentId")] Team team)
+        public async Task<ActionResult> Create([Bind(Include = "TeamId,Name,TournamentId")] Team team, int id)
         {
             if (ModelState.IsValid)
             {
                 db.Teams.Add(team);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction($"Index/{id}");
             }
 
             return View(team);

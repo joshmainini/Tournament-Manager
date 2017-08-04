@@ -60,7 +60,7 @@
 
 <div>
     @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("Manage Teams", "Index", "Teams")
+    @Html.ActionLink("Manage Teams", "Index", "Teams", new { id = Model.TournamentId }, null)
 </div>
 
 @section Scripts {
