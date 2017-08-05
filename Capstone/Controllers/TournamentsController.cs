@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Models;
+using Microsoft.AspNet.Identity;
 
 namespace WebApplication1.Controllers
 {
@@ -18,7 +19,10 @@ namespace WebApplication1.Controllers
         // GET: Tournaments
         public async Task<ActionResult> Index()
         {
-            return View(await db.Tournaments.ToListAsync());
+			var id = User.Identity.GetUserId();
+
+			return View(await db.Tournaments.Where(a => a.OrganizerId == id).ToListAsync());
+
         }
 
         // GET: Tournaments/Details/5
@@ -39,7 +43,7 @@ namespace WebApplication1.Controllers
         // GET: Tournaments/Create
         public ActionResult Create()
         {
-            return View();
+			return View();
         }
 
         // POST: Tournaments/Create
@@ -47,9 +51,11 @@ namespace WebApplication1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "TournamentId,Start,End,Location,OrganizerId")] Tournament tournament)
+        public async Task<ActionResult> Create([Bind(Include = "TournamentId,Start,End,Name,Location,OrganizerId")] Tournament tournament)
         {
-            if (ModelState.IsValid)
+			tournament.OrganizerId = User.Identity.GetUserId();
+
+			if (ModelState.IsValid)
             {
                 db.Tournaments.Add(tournament);
                 await db.SaveChangesAsync();
@@ -81,7 +87,8 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "TournamentId,Start,End,Location,OrganizerId")] Tournament tournament)
         {
-            if (ModelState.IsValid)
+			tournament.OrganizerId = User.Identity.GetUserId();
+			if (ModelState.IsValid)
             {
                 db.Entry(tournament).State = EntityState.Modified;
                 await db.SaveChangesAsync();

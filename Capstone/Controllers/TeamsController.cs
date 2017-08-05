@@ -51,6 +51,8 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "TeamId,Name,TournamentId")] Team team, int id)
         {
+			team.TournamentId = id;
+
             if (ModelState.IsValid)
             {
                 db.Teams.Add(team);
@@ -83,12 +85,19 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "TeamId,Name,TournamentId")] Team team)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(team).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
+			using (TournamentManagerContext context = new TournamentManagerContext())
+			{
+				var dbTeam = context.Teams.Where(a => a.TeamId == team.TeamId).ToList();
+				team.TournamentId = dbTeam[0].TournamentId;
+
+				if (ModelState.IsValid)
+				{
+					db.Entry(team).State = EntityState.Modified;
+					await db.SaveChangesAsync();
+					return RedirectToAction($"Index/{team.TournamentId}");
+				}
+
+			}
             return View(team);
         }
 
