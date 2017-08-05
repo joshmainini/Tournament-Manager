@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts {
+    <link rel="stylesheet" type="text/css" href="~/Content/jquery.bracket.min.css">
+    <script type="text/javascript" src="~/Scripts/jquery.bracket.min.js"></script>
+
+    <script type="text/javascript">
+
+        var minimalData = {
+            teams: [
+                ["Team 1", "Team 2"], /* first matchup */
+                ["Team 3", "Team 4"], /* first matchup */
+                ["Team 5", "Team 6"], /* first matchup */
+                ["Team 7", "Team 8"]  /* second matchup */
+            ],
+            results: [
+                
+            ]
+        }
+
+        $(function () {
+            $('#bracket-test').bracket({
+                init: minimalData /* data to initialize the bracket with */
+            })
+        })
+
+    </script>
+}
+<div id="bracket-test">
+</div>
