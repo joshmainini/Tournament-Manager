@@ -204,6 +204,27 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708041628101_InitialCreate.cs" />
+    <Compile Include="Migrations\201708041628101_InitialCreate.Designer.cs">
+      <DependentUpon>201708041628101_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708051441233_Added model.cs" />
+    <Compile Include="Migrations\201708051441233_Added model.Designer.cs">
+      <DependentUpon>201708051441233_Added model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708051542473_Changed models.cs" />
+    <Compile Include="Migrations\201708051542473_Changed models.Designer.cs">
+      <DependentUpon>201708051542473_Changed models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708051731563_model changes.cs" />
+    <Compile Include="Migrations\201708051731563_model changes.Designer.cs">
+      <DependentUpon>201708051731563_model changes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708051741534_Switch back.cs" />
+    <Compile Include="Migrations\201708051741534_Switch back.Designer.cs">
+      <DependentUpon>201708051741534_Switch back.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -302,6 +323,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201708041628101_InitialCreate.resx">
+      <DependentUpon>201708041628101_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708051441233_Added model.resx">
+      <DependentUpon>201708051441233_Added model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708051542473_Changed models.resx">
+      <DependentUpon>201708051542473_Changed models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708051731563_model changes.resx">
+      <DependentUpon>201708051731563_model changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708051741534_Switch back.resx">
+      <DependentUpon>201708051741534_Switch back.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

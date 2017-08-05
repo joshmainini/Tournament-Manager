@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Tournaments</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -19,10 +19,10 @@
             @Html.DisplayNameFor(model => model.End)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Location)
+            @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.OrganizerId)
+            @Html.DisplayNameFor(model => model.Location)
         </th>
         <th></th>
     </tr>
@@ -36,10 +36,10 @@
             @Html.DisplayFor(modelItem => item.End)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Location)
+            @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.OrganizerId)
+            @Html.DisplayFor(modelItem => item.Location)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.TournamentId }) |

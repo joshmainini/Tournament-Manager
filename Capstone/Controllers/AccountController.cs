@@ -172,9 +172,17 @@ namespace WebApplication1.Controllers
             return View(model);
         }
 
-        //
-        // GET: /Account/ConfirmEmail
-        [AllowAnonymous]
+		[HttpGet]
+		public JsonResult IsEmpNameExist(string email)
+		{
+
+			bool isExist = EmployeeStaticData.UserList.Where(u => u.EmpName.ToLowerInvariant().Equals(Empname.ToLower())) != null;
+			return Json(!isExist, JsonRequestBehavior.AllowGet);
+		}
+
+		//
+		// GET: /Account/ConfirmEmail
+		[AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
             if (userId == null || code == null)
