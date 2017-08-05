@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Net.Http;
-using System.Web.Mvc;
 
 namespace WebApplication1.Models
 {
@@ -66,12 +64,11 @@ namespace WebApplication1.Models
 
     public class RegisterViewModel
     {
-
         [Required]
         [EmailAddress]
-        [Display(Name = "Email")]
-		[Remote("doesUserNameExist", "Account", HttpMethod = "POST", ErrorMessage = "Email already exists. Please enter a different email.")]
-		public string Email { get; set; }
+		[System.Web.Mvc.Remote("EmailExist", "Account", ErrorMessage = "Email already exists")]
+		[Display(Name = "Email")]
+        public string Email { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -81,7 +78,7 @@ namespace WebApplication1.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
 

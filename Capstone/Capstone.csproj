@@ -215,6 +215,14 @@
     <Compile Include="Migrations\201708051542473_Changed models.Designer.cs">
       <DependentUpon>201708051542473_Changed models.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708051731563_model changes.cs" />
+    <Compile Include="Migrations\201708051731563_model changes.Designer.cs">
+      <DependentUpon>201708051731563_model changes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708051741534_Switch back.cs" />
+    <Compile Include="Migrations\201708051741534_Switch back.Designer.cs">
+      <DependentUpon>201708051741534_Switch back.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -321,6 +329,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708051542473_Changed models.resx">
       <DependentUpon>201708051542473_Changed models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708051731563_model changes.resx">
+      <DependentUpon>201708051731563_model changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708051741534_Switch back.resx">
+      <DependentUpon>201708051741534_Switch back.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
