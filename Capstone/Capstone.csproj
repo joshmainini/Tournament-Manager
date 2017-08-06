@@ -223,6 +223,10 @@
     <Compile Include="Migrations\201708051741534_Switch back.Designer.cs">
       <DependentUpon>201708051741534_Switch back.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708051900303_Email validation.cs" />
+    <Compile Include="Migrations\201708051900303_Email validation.Designer.cs">
+      <DependentUpon>201708051900303_Email validation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -265,7 +269,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
@@ -301,6 +305,10 @@
     <Content Include="Views\Teams\Details.cshtml" />
     <Content Include="Views\Teams\Edit.cshtml" />
     <Content Include="Views\Teams\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutSignedIn.cshtml" />
+    <Content Include="Views\Home\IndexSignedIn.cshtml" />
+    <Content Include="Views\Home\AboutSignedIn.cshtml" />
+    <Content Include="Views\Home\ContactSignedIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -335,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708051741534_Switch back.resx">
       <DependentUpon>201708051741534_Switch back.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708051900303_Email validation.resx">
+      <DependentUpon>201708051900303_Email validation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

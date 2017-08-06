@@ -57,7 +57,7 @@ namespace WebApplication1.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
+			ViewBag.ReturnUrl = returnUrl;
             return View();
         }
 
@@ -139,7 +139,8 @@ namespace WebApplication1.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+			
+			return View();
         }
 
         //
@@ -173,11 +174,13 @@ namespace WebApplication1.Controllers
         }
 
 		[HttpGet]
-		public JsonResult IsEmpNameExist(string email)
+		public JsonResult EmailExist(string email)
 		{
-
-			bool isExist = EmployeeStaticData.UserList.Where(u => u.EmpName.ToLowerInvariant().Equals(Empname.ToLower())) != null;
-			return Json(!isExist, JsonRequestBehavior.AllowGet);
+			using (ApplicationDbContext context = new ApplicationDbContext())
+			{
+				bool isExist = context.Users.Where(u => u.Email.ToLowerInvariant().Equals(email.ToLower())) != null;
+				return Json(!isExist, JsonRequestBehavior.AllowGet);
+			}
 		}
 
 		//

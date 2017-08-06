@@ -14,22 +14,33 @@ namespace WebApplication1.Controllers
 
         public ActionResult Index()
         {
-
+			if (User.Identity.IsAuthenticated == true)
+			{
+				return View("IndexSignedIn");
+			}
 			return View();
         }
 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
+			if (User.Identity.IsAuthenticated == true)
+			{
+				return View("AboutSignedIn");
+			}
 
-            return View();
+			return View();
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+			if (User.Identity.IsAuthenticated == true)
+			{
+				return View("ContactSignedIn");
+			}
 
-            return View();
+			return View();
         }
     }
 }
