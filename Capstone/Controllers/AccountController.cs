@@ -172,13 +172,13 @@ namespace WebApplication1.Controllers
             return View(model);
         }
 
-		[HttpGet]
-		public JsonResult IsEmpNameExist(string email)
-		{
+		//[HttpGet]
+		//public JsonResult IsEmpNameExist(string email)
+		//{
 
-			bool isExist = EmployeeStaticData.UserList.Where(u => u.EmpName.ToLowerInvariant().Equals(Empname.ToLower())) != null;
-			return Json(!isExist, JsonRequestBehavior.AllowGet);
-		}
+		//	bool isExist = EmployeeStaticData.UserList.Where(u => u.EmpName.ToLowerInvariant().Equals(Empname.ToLower())) != null;
+		//	return Json(!isExist, JsonRequestBehavior.AllowGet);
+		//}
 
 		//
 		// GET: /Account/ConfirmEmail
