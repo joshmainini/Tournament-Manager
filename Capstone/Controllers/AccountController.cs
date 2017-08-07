@@ -173,15 +173,15 @@ namespace WebApplication1.Controllers
             return View(model);
         }
 
-		[HttpGet]
-		public JsonResult EmailExist(string email)
-		{
-			using (ApplicationDbContext context = new ApplicationDbContext())
-			{
-				bool isExist = context.Users.Where(u => u.Email.ToLowerInvariant().Equals(email.ToLower())) != null;
-				return Json(!isExist, JsonRequestBehavior.AllowGet);
-			}
-		}
+		//[HttpGet]
+		//public JsonResult EmailExist(string email)
+		//{
+		//	using (ApplicationDbContext context = new ApplicationDbContext())
+		//	{
+		//		bool isExist = context.Users.Where(u => u.Email.ToLowerInvariant().Equals(email.ToLower())) != null;
+		//		return Json(!isExist, JsonRequestBehavior.AllowGet);
+		//	}
+		//}
 
 		//
 		// GET: /Account/ConfirmEmail
