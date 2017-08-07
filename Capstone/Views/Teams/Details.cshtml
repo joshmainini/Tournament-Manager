@@ -19,17 +19,9 @@
             @Html.DisplayFor(model => model.Name)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TournamentId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TournamentId)
-        </dd>
-
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.TeamId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", new { id = Model.TournamentId })
 </p>

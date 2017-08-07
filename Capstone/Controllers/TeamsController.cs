@@ -152,7 +152,7 @@ namespace WebApplication1.Controllers
             Team team = await db.Teams.FindAsync(id);
             db.Teams.Remove(team);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction($"Index/{team.TournamentId}");
         }
 
         protected override void Dispose(bool disposing)

@@ -20,14 +20,6 @@
             @Html.DisplayFor(model => model.Name)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TournamentId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TournamentId)
-        </dd>
-
     </dl>
 
     @using (Html.BeginForm()) {
@@ -35,7 +27,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Back to List", "Index", new { id = Model.TournamentId })
         </div>
     }
 </div>
