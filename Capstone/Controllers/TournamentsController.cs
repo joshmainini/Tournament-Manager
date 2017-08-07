@@ -105,7 +105,7 @@ namespace WebApplication1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "TournamentId,Start,End,Location,OrganizerId")] Tournament tournament)
+        public async Task<ActionResult> Edit([Bind(Include = "TournamentId,Start,End,Name,Location,OrganizerId")] Tournament tournament)
         {
 			if (User.Identity.IsAuthenticated == false)
 			{
