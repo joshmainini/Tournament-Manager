@@ -148,7 +148,7 @@ namespace WebApplication1.Controllers
 			Tournament tournament = await db.Tournaments.FindAsync(id);
             db.Tournaments.Remove(tournament);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction($"Index/{tournament.OrganizerId}");
         }
 
         protected override void Dispose(bool disposing)

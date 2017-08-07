@@ -67,7 +67,6 @@ namespace WebApplication1.Models
     {
         [Required]
         [EmailAddress]
-		[Remote("EmailExist", "Account", ErrorMessage = "Email already exists")]
 		[Display(Name = "Email")]
         public string Email { get; set; }
 
