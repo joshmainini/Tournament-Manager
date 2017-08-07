@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts {
+    <link rel="stylesheet" type="text/css" href="~/Content/jquery.bracket.min.css">
+    <script type="text/javascript" src="~/Scripts/jquery.bracket.min.js"></script>
+<script type="text/javascript">
+        var saveData = {
+            teams: [
+                ["Team 1", "Team 2"],
+                ["Team 3", "Team 6"],
+                ["Team 4", "team 7"],
+                ["Team 5", null]
+            ],
+            results: [
+                [
+                    //[[1, 0], [null, null], [null, null], [null, null]],
+                    //[[null, null], [1, 4]],
+                    //[[null, null], [null, null]]
+                ]
+            ]
+        };
+
+        /* Called whenever bracket is modified
+         *
+         * data:     changed bracket object in format given to init
+         * userData: optional data given when bracket is created.
+         */
+        function saveFn(data, userData) {
+            var json = jQuery.toJSON(data)
+            $('#saveOutput').text('POST ' + userData + ' ' + json)
+            /* You probably want to do something like this
+            jQuery.ajax("rest/"+userData, {contentType: 'application/json',
+                                          dataType: 'json',
+                                          type: 'post',
+                                          data: json})
+            */
+        }
+
+        $(function () {
+            var container = $('#bracket-test')
+            container.bracket({
+                init: saveData,
+                save: saveFn,
+                userData: "http://myapi"
+            })
+        })
+
+        var resizeParameters = {
+            teamWidth: 120,
+            scoreWidth: 42,
+            matchMargin: 80,
+            roundMargin: 82,
+            init: saveData
+        };
+
+        function updateResizeDemo() {
+            $('#bracket-test').bracket(resizeParameters);
+        }
+
+        $(updateResizeDemo)
+</script>
+}
+<div id="bracket-test">
+</div>
