@@ -142,6 +142,22 @@ namespace WebApplication1.Controllers
 
 			return View();
 		}
+		[HttpGet]
+		public JsonResult EmailExist()
+		{
+			string email = Request.QueryString["Email"];
+
+			using (ApplicationDbContext context = new ApplicationDbContext())
+			{
+				bool isExist = context.Users.Where(u => u.Email.ToLowerInvariant().Equals(email.ToLower())).ToList().Count() > 0;
+				if (isExist == false)
+				{
+					return Json(true, JsonRequestBehavior.AllowGet);
+				}
+
+				return Json(false, JsonRequestBehavior.AllowGet);
+			}
+		}
 
 		//
 		// POST: /Account/Register
@@ -173,19 +189,9 @@ namespace WebApplication1.Controllers
 			return View(model);
 		}
 
-		//[HttpGet]
-		//public JsonResult EmailExist(string email)
-		//{
-		//	using (ApplicationDbContext context = new ApplicationDbContext())
-		//	{
-		//		bool isExist = context.Users.Where(u => u.Email.ToLowerInvariant().Equals(email.ToLower())) != null;
-		//		return Json(!isExist, JsonRequestBehavior.AllowGet);
-		//	}
-	//}
-
-	//
-	// GET: /Account/ConfirmEmail
-	[AllowAnonymous]
+		//
+		// GET: /Account/ConfirmEmail
+		[AllowAnonymous]
 	public async Task<ActionResult> ConfirmEmail(string userId, string code)
 	{
 		if (userId == null || code == null)
