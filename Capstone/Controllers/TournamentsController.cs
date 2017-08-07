@@ -20,6 +20,10 @@ namespace WebApplication1.Controllers
         public async Task<ActionResult> Index()
         {
 			var id = User.Identity.GetUserId();
+			if (User.Identity.IsAuthenticated == false)
+			{
+				return Redirect("/Home/Index");
+			}
 
 			return View(await db.Tournaments.Where(a => a.OrganizerId == id).ToListAsync());
 
@@ -28,7 +32,11 @@ namespace WebApplication1.Controllers
         // GET: Tournaments/Details/5
         public async Task<ActionResult> Details(int? id)
         {
-            if (id == null)
+			if (User.Identity.IsAuthenticated == false)
+			{
+				return Redirect("/Home/Index");
+			}
+			if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -43,6 +51,10 @@ namespace WebApplication1.Controllers
         // GET: Tournaments/Create
         public ActionResult Create()
         {
+			if (User.Identity.IsAuthenticated == false)
+			{
+				return Redirect("/Home/Index");
+			}
 			return View();
         }
 
@@ -53,6 +65,10 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "TournamentId,Start,End,Name,Location,OrganizerId")] Tournament tournament)
         {
+			if (User.Identity.IsAuthenticated == false)
+			{
+				return Redirect("/Home/Index");
+			}
 			tournament.OrganizerId = User.Identity.GetUserId();
 
 			if (ModelState.IsValid)
@@ -68,7 +84,11 @@ namespace WebApplication1.Controllers
         // GET: Tournaments/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
-            if (id == null)
+			if (User.Identity.IsAuthenticated == false)
+			{
+				return Redirect("/Home/Index");
+			}
+			if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -87,6 +107,10 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "TournamentId,Start,End,Location,OrganizerId")] Tournament tournament)
         {
+			if (User.Identity.IsAuthenticated == false)
+			{
+				return Redirect("/Home/Index");
+			}
 			tournament.OrganizerId = User.Identity.GetUserId();
 			if (ModelState.IsValid)
             {
@@ -100,7 +124,11 @@ namespace WebApplication1.Controllers
         // GET: Tournaments/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
-            if (id == null)
+			if (User.Identity.IsAuthenticated == false)
+			{
+				return Redirect("/Home/Index");
+			}
+			if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -117,7 +145,7 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Tournament tournament = await db.Tournaments.FindAsync(id);
+			Tournament tournament = await db.Tournaments.FindAsync(id);
             db.Tournaments.Remove(tournament);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");

@@ -18,6 +18,10 @@ namespace WebApplication1.Controllers
         // GET: Teams
         public async Task<ActionResult> Index(int? id)
         {
+			if (User.Identity.IsAuthenticated == false)
+			{
+				return Redirect("/Home/Index");
+			}
 			ViewBag.id = id;
             return View(await db.Teams.Where(a => a.TournamentId == id).ToListAsync());
         }
@@ -25,7 +29,11 @@ namespace WebApplication1.Controllers
         // GET: Teams/Details/5
         public async Task<ActionResult> Details(int? id)
         {
-            if (id == null)
+			if (User.Identity.IsAuthenticated == false)
+			{
+				return Redirect("/Home/Index");
+			}
+			if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -40,6 +48,10 @@ namespace WebApplication1.Controllers
         // GET: Teams/Create
         public ActionResult Create(int? id)
         {
+			if (User.Identity.IsAuthenticated == false)
+			{
+				return Redirect("/Home/Index");
+			}
 			ViewBag.id = id;
             return View();
         }
@@ -51,6 +63,10 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "TeamId,Name,TournamentId")] Team team, int id)
         {
+			if (User.Identity.IsAuthenticated == false)
+			{
+				return Redirect("/Home/Index");
+			}
 			team.TournamentId = id;
 
             if (ModelState.IsValid)
@@ -66,7 +82,11 @@ namespace WebApplication1.Controllers
         // GET: Teams/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
-            if (id == null)
+			if (User.Identity.IsAuthenticated == false)
+			{
+				return Redirect("/Home/Index");
+			}
+			if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -85,6 +105,10 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "TeamId,Name,TournamentId")] Team team)
         {
+			if (User.Identity.IsAuthenticated == false)
+			{
+				return Redirect("/Home/Index");
+			}
 			using (TournamentManagerContext context = new TournamentManagerContext())
 			{
 				var dbTeam = context.Teams.Where(a => a.TeamId == team.TeamId).ToList();
@@ -104,7 +128,11 @@ namespace WebApplication1.Controllers
         // GET: Teams/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
-            if (id == null)
+			if (User.Identity.IsAuthenticated == false)
+			{
+				return Redirect("/Home/Index");
+			}
+			if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
