@@ -1,8 +1,11 @@
 ﻿@model IEnumerable<WebApplication1.Models.Team>
+@using WebApplication1.Models;
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutSignedIn.cshtml";
+    List<Team> Teams = Model.ToList();
+    int tournamentId = Teams[0].TournamentId;
 }
 
 <h2>Teams</h2>
@@ -33,5 +36,6 @@
 
 </table>
 <div>
-    @Html.ActionLink("Back", "Index", "Tournaments") 
+    @Html.ActionLink("Back", "Index", "Tournaments") |
+    @Html.ActionLink("View Bracket", "Index", "Bracket",  new { id = tournamentId}, null)
 </div>
