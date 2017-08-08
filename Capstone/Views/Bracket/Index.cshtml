@@ -1,6 +1,14 @@
 ﻿@{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (User.Identity.IsAuthenticated == true)
+    {
+        Layout = "~/Views/Shared/_LayoutSignedIn.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
 }
 @section scripts {
     <link rel="stylesheet" type="text/css" href="~/Content/jquery.bracket.min.css">

@@ -4,8 +4,12 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutSignedIn.cshtml";
+    int tournamentId = 0;
     List<Team> Teams = Model.ToList();
-    int tournamentId = Teams[0].TournamentId;
+    if(Teams.Count > 0)
+    {
+        tournamentId = Teams[0].TournamentId;
+    }
 }
 
 <h2>Teams</h2>

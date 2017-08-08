@@ -17,7 +17,8 @@ namespace WebApplication1.Controllers
         //GET: Bracket/GetTournament/5
         public ActionResult Index(int? id)
         {
-            ViewBag.Id = id.ToString();
+			
+			ViewBag.Id = id.ToString();
             return View();
         }
 
