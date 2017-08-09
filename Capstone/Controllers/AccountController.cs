@@ -155,8 +155,8 @@ namespace WebApplication1.Controllers
 				bool result = context.Users.Where(u => u.Email.ToLower().Equals(model.Email.ToLower())).ToList().Count() > 0;
 				if (result)
 				{
-					//ViewBag.email = "Email address already exists";
-					return Redirect("Register");
+					ViewBag.email = "Email address already exists";
+					return View("Register");
 				}
 			}
 				if (ModelState.IsValid)
