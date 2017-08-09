@@ -14,11 +14,7 @@ namespace WebApplication1.Controllers
 
         public ActionResult Index()
         {
-			//using (TournamentManagerContext context = new TournamentManagerContext)
-			//{
-
-			//}
-				if (User.Identity.IsAuthenticated == true)
+			if (User.Identity.IsAuthenticated == true)
 				{
 					return View("IndexSignedIn");
 				}
