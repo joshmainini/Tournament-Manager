@@ -15,9 +15,9 @@ namespace WebApplication1.Controllers
         public ActionResult Index()
         {
 			if (User.Identity.IsAuthenticated == true)
-			{
-				return View("IndexSignedIn");
-			}
+				{
+					return View("IndexSignedIn");
+				}
 			return View();
         }
 
