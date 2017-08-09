@@ -108,8 +108,6 @@
     <Compile Include="PageObjects\CreateTeamResult.cs" />
     <Compile Include="PageObjects\CreateTournament.cs" />
     <Compile Include="PageObjects\CreateTournamentResult.cs" />
-    <Compile Include="PageObjects\EditTournament.cs" />
-    <Compile Include="PageObjects\EditTournamentResult.cs" />
     <Compile Include="PageObjects\Login.cs" />
     <Compile Include="PageObjects\LoginResult.cs" />
     <Compile Include="PageObjects\Register.cs" />

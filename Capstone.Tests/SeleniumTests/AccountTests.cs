@@ -85,18 +85,5 @@ namespace WebApplication1.Tests.SeleniumTests
 			tournyDal.DeleteTournament("Test");
 			tournyDal.DeleteTeam("Test");
 		}
-
-		//[TestMethod]
-		//public void EditTournament_GoToIndex()
-		//{
-		//	EditTournament entryPage = new EditTournament(driver);
-		//	entryPage.Navigate();
-		//	string start = "08092017";
-		//	string end = "08102017";
-
-		//	EditTournamentResult result = entryPage.FillOutForm(start, end, "Test1", "Test Location");
-
-		//	Assert.AreEqual("Test1", result.Success.Text);
-		//}
 	}
 }
