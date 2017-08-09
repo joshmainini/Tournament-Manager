@@ -39,7 +39,7 @@ namespace WebApplication1.Controllers
 
             TourneyJSON output = new TourneyJSON();
 
-            for (int i = 0; i < tournamentTeams.Count() - 1; i++)
+            for (int i = 0; i < tournamentTeams.Count() - 1; i += 2)
             {
                 string teamA = tournamentTeams[i].Name;
                 var teamB = (tournamentTeams[i + 1].Name == null) ? null : tournamentTeams[i + 1].Name;

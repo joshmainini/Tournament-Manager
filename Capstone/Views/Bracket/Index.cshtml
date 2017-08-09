@@ -14,10 +14,10 @@
     <link rel="stylesheet" type="text/css" href="~/Content/jquery.bracket.min.css">
     <script type="text/javascript" src="~/Scripts/jquery.bracket.min.js"></script>
     <script type="text/javascript">
-        var saveData;
+        var saveData; //upcoming
 
         $(document).ready(function () {
-            var url = '/Bracket/GetTournament/@ViewBag.Id';
+            var url = '/Bracket/GetTournament/@ViewBag.Id'; //home/upcoming
             $.ajax({ url: url, success: DataRetrieved, type: 'POST', dataType: 'json' });
 
             function DataRetrieved(data) {
