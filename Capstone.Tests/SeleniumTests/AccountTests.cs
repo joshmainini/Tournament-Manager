@@ -17,7 +17,7 @@ namespace WebApplication1.Tests.SeleniumTests
 	public class AccountTests
 	{
 		UserDAL dal = new UserDAL(@"Data Source=localhost\sqlexpress;Initial Catalog=Slime;Integrated Security=True");
-		TournamentDAL tournyDal = new TournamentDAL(@"Data Source=localhost\sqlexpress;Initial Catalog=Slime;Integrated Security=True")
+        TournamentDAL tournyDal = new TournamentDAL(@"Data Source=localhost\sqlexpress;Initial Catalog=Slime;Integrated Security=True");
 		private static IWebDriver driver;
 
 
