@@ -12,6 +12,7 @@
 }
 @section scripts {
     <link rel="stylesheet" type="text/css" href="~/Content/jquery.bracket.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/bracketView.css">
     <script type="text/javascript" src="~/Scripts/jquery.bracket.min.js"></script>
     <script type="text/javascript">
         var saveData; //upcoming
@@ -24,7 +25,7 @@
                 console.log(data);
                 saveData = data;
 
-                var container = $('#bracket-test')
+                var container = $('#bracketDiv')
                 container.bracket({
                     init: saveData,
                     save: saveFn,
@@ -51,5 +52,5 @@
         });
     </script>
 }
-<div id="bracket-test">
+<div id="bracketDiv">
 </div>
